@@ -1,0 +1,426 @@
+body {
+    position: relative;
+    background-image: url('../image/contentBg.jpg');
+    background-size: 100% 100%;
+}
+
+.centerimg {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.centertitle {
+    position: absolute;
+    left: 50%;
+    text-align: center;
+    transform: translateX(-50%);
+    color: white;
+    font-size: 26px;
+    font-weight: bold;
+}
+
+.centerchtitle {
+    position: relative;
+    top: 8px;
+    margin-bottom: 1px;
+}
+
+.centerentitle {
+    font-size: 16px;
+}
+
+.topleft {
+    position: absolute;
+    top: 9px;
+    left: 9px;
+    font-size: 18px;
+    color: white
+}
+
+.topright {
+    position: absolute;
+    right: 27px;
+    top: 8px;
+    color: white;
+    font-size: 16px;
+}
+
+.weathertitle,
+.atmostitle,
+.soiltitle,
+.equiptitle,
+.monititle,
+.polititle,
+.relaytitle {
+    position: absolute;
+    width: 422px;
+    height: 43px;
+    background-image: url('../image/itemTitleBg.png');
+    background-size: 422px 43px;
+    left: 18px;
+    top: 111px;
+    box-sizing: border-box;
+    color: white
+}
+
+.weathertitle span,
+.atmostitle span,
+.soiltitle span,
+.equiptitle span,
+.monititle span,
+.polititle span,
+.relaytitle span {
+    position: absolute;
+    top: 14px;
+    left: 43px
+}
+
+.atmostitle {
+    left: 18px;
+    top: 549px;
+}
+
+.soiltitle {
+    left: 514px;
+    top: 541px;
+}
+
+.equiptitle {
+    left: 975px;
+    top: 541px;
+}
+
+.monititle {
+    left: 1477px;
+    top: 111px;
+}
+
+.polititle {
+    left: 1477px;
+    top: 438px;
+}
+
+.relaytitle {
+    left: 1477px;
+    top: 688px;
+}
+
+.centerbox {
+    position: absolute;
+    top: 111px;
+    width: 916px;
+    height: 398px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.centerboximg1,
+.centerboximg2,
+.centerboximg3,
+.centerboximg4 {
+    width: 38px;
+    height: 38px;
+    position: absolute;
+}
+
+.centerboximg1 {
+    left: 0;
+    top: 0;
+}
+
+.centerboximg2 {
+    right: 0;
+    top: 0;
+}
+
+.centerboximg3 {
+    right: 0;
+    bottom: 0;
+}
+
+.centerboximg4 {
+    left: 0;
+    bottom: 0;
+}
+
+.centerboximg5 {
+    position: absolute;
+    top: 6px;
+    left: 8px;
+    width: 116px;
+    height: 31px;
+}
+
+.centerbox-righttop {
+    position: absolute;
+    top: 6px;
+    right: 10px;
+    display: flex;
+}
+
+.centerbox-righttopbtn {
+    width: 93px;
+    height: 28px;
+    line-height: 26px;
+    text-align: center;
+    color: white;
+    box-sizing: border-box;
+    border: 1px solid #d5d5d5;
+    border-radius: 4px;
+    margin-left: 6px;
+    background-color: #515c61;
+}
+
+.highgreenbtn {
+    background-color: #0e5048;
+    color: #54ff00
+}
+
+.centerbox-center {
+    width: 901px;
+    height: 348px;
+    position: absolute;
+    top: 43px;
+    left: 8px;
+    background-color: transparent;
+}
+
+.monibox,
+.polibox,
+.relaybox {
+    width: 422px;
+    height: 284px;
+    position: absolute;
+    left: 1477px;
+    top: 154px;
+}
+
+.polibox {
+    height: 207px;
+    top: 481px;
+}
+
+.relaybox {
+    height: 204px;
+    top: 731px;
+}
+
+.weatherbox,
+.atmosbox {
+    width: 422px;
+    height: 395px;
+    position: absolute;
+    left: 18px;
+    top: 154px;
+}
+
+.atmosbox {
+    height: 343px;
+    top: 592px;
+}
+
+.soilbox,
+.equipbox {
+    width: 422px;
+    height: 377px;
+    position: absolute;
+    left: 514px;
+    top: 584px;
+}
+
+.equipbox {
+    left: 975px;
+}
+
+/* 右上角select公共样式 */
+.select_class {
+    height: 33px;
+    color: #21fccd;
+    border: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    border-bottom: 1px solid #3dfccd;
+    box-sizing: border-box;
+    background-color: transparent;
+}
+
+.relaybox-centerout {
+    width: 100%;
+    height: calc(100% - 33px);
+    overflow: hidden;
+    padding-top: 42px;
+    padding-left: 18px;
+    box-sizing: border-box;
+}
+
+.relaybox-center {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    /* 隐藏滚动条 */
+    /* firefox */
+    scrollbar-width: none;
+    /* IE 10+ */
+    -ms-overflow-style: none;
+}
+
+.relaybox-center::-webkit-scrollbar {
+    display: none;
+}
+
+.relaybox-centeritem {
+    width: 100%;
+    height: 32px;
+    display: flex;
+    color: white;
+    position: relative;
+    margin-bottom: 2px;
+    padding-top: 0;
+}
+
+.relaybox-centeritem>img {
+    width: 136px;
+    /* height: 19px; */
+    position: absolute;
+    right: 22px;
+}
+
+.relaybox-centeritem span {
+    position: relative;
+    top: -4px;
+}
+
+#monimain {
+    width: 100%;
+    height: 100%;
+    padding-top: 35px;
+    padding-bottom: 11px;
+    box-sizing: border-box;
+}
+
+#EZUIKitPlayer-monimain {
+    width: 100%;
+    height: 100%;
+}
+
+.vary {
+    background-image: url('../image/cloud.jpg');
+    background-clip: content-box;
+}
+
+.weather-site{
+    position: absolute;
+    right:23px;
+    top:11px;
+    color:white;
+    font-size: 14px;
+}
+.weatherbox .iconfont{
+    font-size: 22px;
+}
+#weather-cityname{
+    position: relative;
+    top:-4px;
+    font-weight: bold;
+}
+.weather-bigtemp{
+    position: absolute;
+    width: 168px;
+    height: 102px;
+    line-height: 102px;
+    font-size: 78px;
+    color:white;
+    left:38px;
+    top:38px;
+}
+.weather-species{
+    position: absolute;
+    width: 59px;
+    height: 40px;
+    line-height: 40px;
+    color:white;
+    font-size: 28px;;
+    left:260px;
+    top:39px;
+}
+.weather-maxtemp,.weather-mintemp,.weather-what,.weather-pm{
+    width:52px;
+    height: 26px;
+    line-height: 26px;
+    text-align: center;
+    color:white;
+    font-size: 18px;
+    position: absolute;
+    top:83px;
+    left:225px;
+}
+.weather-what,.weather-pm{
+    left:295px;
+}
+.weather-mintemp,.weather-pm{
+    top:108px
+}
+.weather-centerbox1{
+    width: 100%;
+    height: 51px;
+    position: absolute;
+    top:148px;
+    color:white;
+    display: flex;
+}
+
+.weather-centerboxitem{
+    flex:1;
+    text-align: center;
+}
+.weather-centerboxitem>div:first-child{
+    font-weight: bold;
+    font-size: 18px;
+}
+.weather-centerboxitem>div:nth-child(2){
+    position: relative;
+    top:5px
+}
+
+.weather-hightext{
+    color:#32ff09
+}
+.weather-borderitem{
+    width: 2px;
+    height: 28px;
+    background-color: #bfbfbf;
+    position: absolute;
+    left:104px;
+    top:10px;
+}
+.weather-borderitem.second{
+    left:209px;
+
+}
+.weather-borderitem.third{
+    left:315px;
+}
+.weather-centerbox2{
+    width: 100%;
+    height: 135px;
+    padding-top: 4px;
+    box-sizing: border-box;
+    position: absolute;
+    top:208px;
+    display: flex;
+    color:white;
+    font-size: 16px;
+}
+.weather-centerboxitem2{
+    flex:1;
+    text-align: center;
+    box-sizing: border-box;
+    border-right: 1px solid #bfbfbf;
+}
+.weather-centerboxitem2 img{
+    width: 19px;
+    height: 19px;
+}

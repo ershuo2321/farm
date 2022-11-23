@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>华建智慧装备（农业）</title>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" href="icon/iconfont.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/backindex.css">
+    <link rel="shortcut icon" href="image/favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+    <div class="centerimg">
+        <img src="./image/head.png" alt="">
+    </div>
+    <div class="centertitle">
+        <div><span class="centerchtitle">华建智慧装备(农业)</span></div>
+        <div><span class="centerentitle">Agricultural big data visualization</span></div>
+    </div>
+    <!-- 时间 -->
+    <div class="topleft">
+        <span></span>
+    </div>
+    <div class="topright">
+        <span class="cursor" id="toindex">进入后台</span>
+    </div>
+
+
+    <!-- 七个标题栏 -->
+    <div class="weathertitle">
+        <span>天气</span>
+    </div>
+    <div class="atmostitle">
+        <span>气象监测数据</span>
+    </div>
+    <div class="soiltitle">
+        <span>土壤数据监测</span>
+    </div>
+    <div class="equiptitle">
+        <span>设备在线率</span>
+    </div>
+    <div class="monititle">
+        <span>监控摄像头</span>
+    </div>
+    <div class="polititle">
+        <span>报警记录</span>
+    </div>
+    <div class="relaytitle">
+        <span>继电器控制</span>
+    </div>
+
+
+    <div class="centerbox">
+        <img src="./image/map1.png" class="centerboximg1">
+        <img src="./image/map2.png" class="centerboximg2">
+        <img src="./image/map3.png" class="centerboximg3">
+        <img src="./image/map4.png" class="centerboximg4">
+        <img src="./image/dpst.png" class="centerboximg5">
+        <div class="centerbox-righttop">
+            <div class="centerbox-righttopbtn highgreenbtn cursor"><span>视频播放</span></div>
+            <div class="centerbox-righttopbtn cursor"><span>全景监控</span></div>
+            <div class="centerbox-righttopbtn cursor"><span>平面图</span></div>
+            <div class="centerbox-righttopbtn cursor"><span>3D模型</span></div>
+        </div>
+        <div class="centerbox-center">
+
+        </div>
+    </div>
+
+
+    <!-- 对应七个div盒子-->
+    <!-- 监控 -->
+    <div class="monibox">
+        <select class="select_class cursor" id="moniselect">
+            <!-- 此时数据 -->
+            <option value="1" selected>当前设备：风机</option>
+            <option value="2">当前设备：施肥</option>
+            <option value="3">当前设备：遮阳帘</option>
+            <option value="4">当前设备：果叶菜</option>
+            <option value="5">全部关闭</option>
+        </select>
+        <div id="monimain"></div>
+    </div>
+
+
+    <!-- 报警 -->
+    <div class="polibox">
+
+    </div>
+
+
+    <!-- 继电器 -->
+    <div class="relaybox">
+        <select class="select_class cursor" id="relayselect">
+            <!-- 此时数据 -->
+            <option value="1" selected>当前设备：1号</option>
+            <option value="2">当前设备：2号</option>
+        </select>
+        <div class="relaybox-centerout">
+            <div class="relaybox-center">
+                <!-- <div class="relaybox-centeritem">
+                    <span>设备名称：</span>
+                    <span>名称</span>
+                    <img src="./image/relayopen.png" class="cursor">
+                    <img src="./image/relayclose.png" class="hidden cursor">
+                </div>
+            </div>-->
+            </div>
+        </div>
+    </div>
+
+
+    <!-- 天气 -->
+    <div class="weatherbox">
+        <div class="weather-site">
+            <span><i class="iconfont icon-didian01"></i></span>
+            <span>上海市</span>
+        </div>
+        <div class="weather-bigtemp">
+            <span id="weather-temp"></span><span>℃</span>
+        </div>
+        <div class="weather-species">
+            <span id="weather-weather"></span>
+        </div>
+        <div class="weather-maxtemp">
+            <span>↑</span><span  id="weather-maxtemp"></span><span>℃</span>  
+        </div>
+        <div class="weather-mintemp">
+            <span>↓</span><span  id="weather-mintemp"></span><span>℃</span>
+        </div>
+        <div class="weather-what">
+            <span id="weather-pm"></span>
+        </div>
+        <div class="weather-pm">
+            <span>PM2.5</span>
+        </div>
+        <div class="weather-centerbox1">
+            <div class="weather-centerboxitem">
+                <div><span id="weather-humidity"></span></div>
+                <div><span>湿度</span></div>
+            </div>
+            <div class="weather-centerboxitem">
+                <div><span id="weather-air"></span></div>
+                <div class="weather-hightext"><span>空气</span><span id="weather-airname"></span></div>
+            </div>
+            <div class="weather-centerboxitem">
+                <div><span id="weather-wind_power"></span><span>级</span></div>
+                <div><span>风速</span></div>
+            </div>
+            <div class="weather-centerboxitem">
+                <div><span id="weather-pressure"></span></div>
+                <div><span>气压</span></div>
+            </div>
+            <div class="weather-borderitem first">
+            </div>
+            <div class="weather-borderitem second">
+            </div>
+            <div class="weather-borderitem third">
+            </div>
+        </div>
+        <div class="weather-centerbox2">
+            <!-- <div class="weather-centerboxitem2">
+                <div><span>11/22</span></div>
+                <div><span>小雨</span></div>
+                <div><img src="./image/100.png" ></div>
+                <div><span>↑</span><span>18</span><span>℃</span></div>
+                <div><span>西风</span></div>
+                <div><span>4</span><span>级</span></div>
+            </div> -->
+        </div>
+    </div>
+
+
+    <!-- 气象 -->
+    <div class="atmosbox">
+        <select class="select_class cursor" id="">
+            <!-- 此时数据 -->
+            <option value="" selected>当前设备：铁皮气象</option>
+            <option value="">当前设备：果菜气象</option>
+            <option value="">当前设备：叶菜气象</option>
+        </select>
+    </div>
+
+
+    <!-- 土壤 -->
+    <div class="soilbox">
+        <select class="select_class cursor" id="">
+            <!-- 此时数据 -->
+            <option value="" selected>当前设备：铁皮土壤</option>
+            <option value="">当前设备：果菜土壤</option>
+            <option value="">当前设备：叶菜土壤</option>
+        </select>
+    </div>
+
+
+    <!-- 设备 -->
+    <div class="equipbox">
+
+    </div>
+
+
+
+
+
+
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="js/time.js"></script>
+    <script src="js/ezuikit-2.js"></script>
+    <script src="js/backindex.js"></script>
+</body>
+
+</html>

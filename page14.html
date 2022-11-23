@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,  initial-scale=1.0">
+    <title>改版设备列表</title>
+    <link rel="stylesheet" href="./layui/css/layui.css" media="all">
+    <!-- <link rel="stylesheet" href="https://apps.bdimg.com/libs/jqueryui/1.10.4/css/jquery-ui.min.css"> -->
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="icon/iconfont.css">
+    <link rel="stylesheet" href="css/page14.css">
+    <link rel="shortcut icon" href="image/favicon.ico" type="image/x-icon">
+
+</head>
+
+<body>
+    <div class="headerbox">
+        <div class="header">
+            <div class="header1">
+                <div class="headerlefttop">
+                    <div class="colorbox">
+                        <span></span>
+                    </div>
+                    <div class="title">
+                        <span>继承器管理</span>
+                    </div>
+                    <div class="searchicon cursor"><span><i class="iconfont icon-search"></i></span></div>
+                    <div class="inputbox">
+                        <input type="text" placeholder="请输入设备编号" autocomplete="off">
+                    </div>
+                    <div class="add-device" id="addequip"><span class="cursor">添加设备</span></div>
+                </div>
+                <div class="headerleftbottom">
+                    <div class="device-sum"><span>总设备数量：</span><span class="greenfont">2</span></div>
+                    <div class="device-sum"><span>在线设备：</span><span class="greenfont">2</span></div>
+                    <div class="device-sum"><span>离线设备：</span><span class="redfont">0</span></div>
+                </div>
+            </div>
+            <div class="header2">
+                <div class="rightheadertop">
+                    <div class="legendtitle"><span>图例详情</span></div>
+                    <div class="legendto">
+                        <div class="todifferent">
+                            <span><i class="iconfont icon-sanjiaoleft"></i><i
+                                    class="iconfont icon-sanjiaoright"></i>点击分离设备成每个节点</span>
+                        </div>
+                        <div class="tosame">
+                            <span><i class="iconfont icon-sanjiaoright"></i><i
+                                    class="iconfont icon-sanjiaoleft"></i>点击聚合节点成设备</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="righspaneaderbottom">
+                    <div class="legenddetail"><span><i
+                                class="iconfont icon-control"></i></span><span>节点控制：可单控/组控单个继电器下的节点开关。</span></div>
+                    <div class="legenddetail"><span><i
+                                class="iconfont icon-wenjian"></i></span><span>任务列表：单个继电器下的所有任务列表，可实现任务开关/定时任务/
+                            以组为单位批量添加任务/下次任务时间等功能。</span></div>
+                    <div class="legenddetail"><span><i
+                                class="iconfont icon-bianjiwenjian"></i></span><span>编辑：可修改当前继电器名称/编号/节点数量信息。</span>
+                    </div>
+                    <div class="legenddetail"><span><i
+                                class="iconfont icon-dengdaiwenjian"></i></span><span>操作日志：可查看当前继电器的已执行任务记录及手动操作记录。</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="centerbox">
+        <div class="centerleft">
+            <div class="modelphone">
+                <div class="alldevicetitle">
+                    <span>所有设备</span>
+                </div>
+                <div class="devicelist">
+                    <div class="cursor"><span><i class="iconfont icon-xiangxia"></i>1#</span></div>
+                    <div class="cursor"><span><i class="iconfont icon-xiangxia"></i>2#</span></div>
+                </div>
+            </div>
+        </div>
+        <div class="centerright">
+            <div class="centerightop">
+                <div class="relation">
+                    <div class="togethercircle"><span>○</span></div>
+                    <div class="relationtext"><span>联动关系</span></div>
+                    <div class="hatecircle"><span>○</span></div>
+                    <div class="relationtext"><span>互斥关系</span></div>
+                </div>
+                <div class="threebtnitem">
+                    <div class="threebtn cursor"><span>一键间隔开启</span></div>
+                    <div class="threebtn cursor"><span>批量添加任务</span></div>
+                    <div class="threebtn cursor"><span>批量下发指令</span></div>
+                </div>
+            </div>
+            <div class="centerightbottom">
+                <div class="operdevicelist">
+                    <div class="operdevicebox operdevicebox-all1" id="devicebox-all1">
+                        <div class="opercenter">
+                            <div class="online"><span>在线</span></div>
+                            <div class="leftright cursor leftright-all1"><span><i
+                                        class="iconfont icon-sanjiaoleft"></i></span><span><i
+                                        class="iconfont icon-sanjiaoright"></i></span></div>
+                            <div class="deletedevice cursor"><span><i class="iconfont icon-shanchu"></i></span></div>
+                            <div class="operimg"><img src="../image/equipment.png"></div>
+                            <div class="opertitle">
+                                <span>1号</span>
+                                <span>编号：084EEB861760</span>
+                            </div>
+                            <div class="devicenumber">
+                                <!-- <div class="nornumber"><span>1</span></div> -->
+
+                            </div>
+                        </div>
+                        <div class="operbottom">
+                            <div class="cursor"><span><i class="iconfont icon-control"></i></span></div>
+                            <div class="cursor"><span><i class="iconfont icon-wenjian"></i></span></div>
+                            <div class="cursor"><span><i class="iconfont icon-dengdaiwenjian"></i></span></div>
+                            <div class="cursor"><span><i class="iconfont icon-bianjiwenjian"></i></span></div>
+                            <div class="cursor"><span><i class="iconfont icon-shituxianshiquanbujiedian"></i></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- <div class="operdevicebox operdevicebox-item1 hidden ">
+                        <div class="opercenter">
+                            <div class="online"><span>在线</span></div>
+                            <div class="leftright cursor leftright-item1"><span><i
+                                        class="iconfont icon-sanjiaoright"></i></span><span><i
+                                        class="iconfont icon-sanjiaoleft"></i></span></div>
+                            <div class="deletedevice cursor"><span><i class="iconfont icon-shanchu"></i></span></div>
+                            <div class="operimg2"><img src="../image/equipment.png"></div>
+                            <div class="opertitle2">
+                                <div class="firstspan"><span>设备：1号</span></div>
+                                <div class="secondspan"><span>节点：风机</span></div>
+                                <div class="spanirdspan"><span>编号：084EEB861760</span></div>
+                            </div>
+                            <div class="showdevicestate">
+                                <img src="../image/opendevice.png" class="cursor hidden">
+                                <img src="../image/closedevice.png" class="cursor">
+                            </div>
+                            <div class="editequiostate2"><span>开</span><span class="controlequipooff">关</span></div>
+                        </div>
+                        <div class="operbottom">
+                            <div class="cursor icon-control1"><span><i class="iconfont icon-control"></i></span></div>
+                            <div class="cursor"><span><i class="iconfont icon-wenjian"></i></span></div>
+                            <div class="cursor"><span><i class="iconfont icon-dengdaiwenjian"></i></span></div>
+                            <div class="cursor"><span><i class="iconfont icon-bianjiwenjian"></i></span></div>
+                            <div class="cursor"><span><i class="iconfont icon-shituxianshiquanbujiedian"></i></span>
+                            </div>
+                        </div>
+                    </div> -->
+
+                    <div class="operdevicebox operdevicebox-all2" id="devicebox-all2">
+                        <div class="opercenter">
+                            <div class="online"><span>在线</span></div>
+                            <div class="leftright cursor leftright-all2"><span><i
+                                        class="iconfont icon-sanjiaoleft"></i></span><span><i
+                                        class="iconfont icon-sanjiaoright"></i></span></div>
+                            <div class="deletedevice cursor"><span><i class="iconfont icon-shanchu"></i></span></div>
+                            <div class="operimg"><img src="../image/equipment.png"></div>
+                            <div class="opertitle">
+                                <span>2号</span>
+                                <span>编号：0821B3EFBC57</span>
+                            </div>
+                            <div class="devicenumber">
+                                <div class="nornumber"><span>1</span></div>
+                                <div class="nornumber"><span>2</span></div>
+                                <div class="exnumber"><span>3</span></div>
+                                <div class="nornumber"><span>4</span></div>
+                                <div class="nornumber"><span>5</span></div>
+                                <div class="exnumber"><span>6</span></div>
+                                <div class="nornumber"><span>7</span></div>
+                                <div class="nornumber"><span>8</span></div>
+                            </div>
+                        </div>
+                        <div class="operbottom">
+                            <div class="cursor icon-control2"><span><i class="iconfont icon-control"></i></span></div>
+                            <div class="cursor"><span><i class="iconfont icon-wenjian"></i></span></div>
+                            <div class="cursor"><span><i class="iconfont icon-dengdaiwenjian"></i></span></div>
+                            <div class="cursor"><span><i class="iconfont icon-bianjiwenjian"></i></span></div>
+                            <div class="cursor"><span><i class="iconfont icon-shituxianshiquanbujiedian"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="operdevicebox operdevicebox-item2 hidden">
+                        <div class="opercenter">
+                            <div class="online"><span>在线</span></div>
+                            <div class="leftright cursor leftright-item2"><span><i
+                                        class="iconfont icon-sanjiaoright"></i></span><span><i
+                                        class="iconfont icon-sanjiaoleft"></i></span></div>
+                            <div class="deletedevice cursor"><span><i class="iconfont icon-shanchu"></i></span></div>
+                            <div class="operimg2"><img src="../image/equipment.png"></div>
+                            <div class="opertitle2">
+                                <div class="firstspan"><span>设备：2号</span></div>
+                                <div class="secondspan"><span>节点：施肥</span></div>
+                                <div class="spanirdspan"><span>编号：0821B3EFBC57</span></div>
+                            </div>
+                            <div class="showdevicestate">
+                                <img src="../image/opendevice.png" class="cursor hidden">
+                                <img src="../image/closedevice.png" class="cursor ">
+                            </div>
+                            <div class="editequiostate2"><span>开</span><span class="controlequipooff">关</span></div>
+                        </div>
+                        <div class="operbottom">
+                            <div class="cursor icon-control2"><span><i class="iconfont icon-control"></i></span></div>
+                            <div class="cursor"><span><i class="iconfont icon-wenjian"></i></span></div>
+                            <div class="cursor"><span><i class="iconfont icon-dengdaiwenjian"></i></span></div>
+                            <div class="cursor"><span><i class="iconfont icon-bianjiwenjian"></i></span></div>
+                            <div class="cursor"><span><i class="iconfont icon-shituxianshiquanbujiedian"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="operdevicebox operdevicebox-item2 hidden">
+                        <div class="opercenter">
+                            <div class="online"><span>在线</span></div>
+                            <div class="leftright cursor leftright-item2"><span><i
+                                        class="iconfont icon-sanjiaoright"></i></span><span><i
+                                        class="iconfont icon-sanjiaoleft"></i></span></div>
+                            <div class="deletedevice cursor"><span><i class="iconfont icon-shanchu"></i></span></div>
+                            <div class="operimg2"><img src="../image/equipment.png"></div>
+                            <div class="opertitle2">
+                                <div class="firstspan"><span>设备：2号</span></div>
+                                <div class="secondspan"><span>节点：果肥进水</span></div>
+                                <div class="spanirdspan"><span>编号：0821B3EFBC57</span></div>
+                            </div>
+                            <div class="showdevicestate">
+                                <img src="../image/opendevice.png" class="cursor hidden">
+                                <img src="../image/closedevice.png" class="cursor ">
+                            </div>
+                            <div class="editequiostate2"><span>开</span><span class="controlequipooff">关</span></div>
+                        </div>
+                        <div class="operbottom">
+                            <div class="cursor icon-control2"><span><i class="iconfont icon-control"></i></span></div>
+                            <div class="cursor"><span><i class="iconfont icon-wenjian"></i></span></div>
+                            <div class="cursor"><span><i class="iconfont icon-dengdaiwenjian"></i></span></div>
+                            <div class="cursor"><span><i class="iconfont icon-bianjiwenjian"></i></span></div>
+                            <div class="cursor"><span><i class="iconfont icon-shituxianshiquanbujiedian"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="operdevicebox operdevicebox-item2 hidden">
+                        <div class="opercenter">
+                            <div class="online"><span>在线</span></div>
+                            <div class="leftright cursor leftright-item2"><span><i
+                                        class="iconfont icon-sanjiaoright"></i></span><span><i
+                                        class="iconfont icon-sanjiaoleft"></i></span></div>
+                            <div class="deletedevice cursor"><span><i class="iconfont icon-shanchu"></i></span></div>
+                            <div class="operimg2"><img src="../image/equipment.png"></div>
+                            <div class="opertitle2">
+                                <div class="firstspan"><span>设备：2号</span></div>
+                                <div class="secondspan"><span>节点：叶肥进水</span></div>
+                                <div class="spanirdspan"><span>编号：0821B3EFBC57</span></div>
+                            </div>
+                            <div class="showdevicestate">
+                                <img src="../image/opendevice.png" class="cursor ">
+                                <img src="../image/closedevice.png" class="cursor hidden">
+                            </div>
+                            <div class="editequiostate2"><span class="controlequipon">开</span><span>关</span></div>
+                        </div>
+                        <div class="operbottom">
+                            <div class="cursor icon-control2"><span><i class="iconfont icon-control"></i></span></div>
+                            <div class="cursor"><span><i class="iconfont icon-wenjian"></i></span></div>
+                            <div class="cursor"><span><i class="iconfont icon-dengdaiwenjian"></i></span></div>
+                            <div class="cursor"><span><i class="iconfont icon-bianjiwenjian"></i></span></div>
+                            <div class="cursor"><span><i class="iconfont icon-shituxianshiquanbujiedian"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="operdevicebox operdevicebox-item2 hidden">
+                        <div class="opercenter">
+                            <div class="online"><span>在线</span></div>
+                            <div class="leftright cursor leftright-item2"><span><i
+                                        class="iconfont icon-sanjiaoright"></i></span><span><i
+                                        class="iconfont icon-sanjiaoleft"></i></span></div>
+                            <div class="deletedevice cursor"><span><i class="iconfont icon-shanchu"></i></span></div>
+                            <div class="operimg2"><img src="../image/equipment.png"></div>
+                            <div class="opertitle2">
+                                <div class="firstspan"><span>设备：2号</span></div>
+                                <div class="secondspan"><span>节点：备用1</span></div>
+                                <div class="spanirdspan"><span>编号：0821B3EFBC57</span></div>
+                            </div>
+                            <div class="showdevicestate">
+                                <img src="../image/opendevice.png" class="cursor hidden">
+                                <img src="../image/closedevice.png" class="cursor ">
+                            </div>
+                            <div class="editequiostate2"><span>开</span><span class="controlequipooff">关</span></div>
+                        </div>
+                        <div class="operbottom">
+                            <div class="cursor icon-control2"><span><i class="iconfont icon-control"></i></span></div>
+                            <div class="cursor"><span><i class="iconfont icon-wenjian"></i></span></div>
+                            <div class="cursor"><span><i class="iconfont icon-dengdaiwenjian"></i></span></div>
+                            <div class="cursor"><span><i class="iconfont icon-bianjiwenjian"></i></span></div>
+                            <div class="cursor"><span><i class="iconfont icon-shituxianshiquanbujiedian"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="operdevicebox operdevicebox-item2 hidden">
+                        <div class="opercenter">
+                            <div class="online"><span>在线</span></div>
+                            <div class="leftright cursor leftright-item2"><span><i
+                                        class="iconfont icon-sanjiaoright"></i></span><span><i
+                                        class="iconfont icon-sanjiaoleft"></i></span></div>
+                            <div class="deletedevice cursor"><span><i class="iconfont icon-shanchu"></i></span></div>
+                            <div class="operimg2"><img src="../image/equipment.png"></div>
+                            <div class="opertitle2">
+                                <div class="firstspan"><span>设备：2号</span></div>
+                                <div class="secondspan"><span>节点：备用2</span></div>
+                                <div class="spanirdspan"><span>编号：0821B3EFBC57</span></div>
+                            </div>
+                            <div class="showdevicestate">
+                                <img src="../image/opendevice.png" class="cursor hidden">
+                                <img src="../image/closedevice.png" class="cursor ">
+                            </div>
+                            <div class="editequiostate2"><span>开</span><span class="controlequipooff">关</span></div>
+                        </div>
+                        <div class="operbottom">
+                            <div class="cursor icon-control2"><span><i class="iconfont icon-control"></i></span></div>
+                            <div class="cursor"><span><i class="iconfont icon-wenjian"></i></span></div>
+                            <div class="cursor"><span><i class="iconfont icon-dengdaiwenjian"></i></span></div>
+                            <div class="cursor"><span><i class="iconfont icon-bianjiwenjian"></i></span></div>
+                            <div class="cursor"><span><i class="iconfont icon-shituxianshiquanbujiedian"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="operdevicebox operdevicebox-item2 hidden">
+                        <div class="opercenter">
+                            <div class="online"><span>在线</span></div>
+                            <div class="leftright cursor leftright-item2"><span><i
+                                        class="iconfont icon-sanjiaoright"></i></span><span><i
+                                        class="iconfont icon-sanjiaoleft"></i></span></div>
+                            <div class="deletedevice cursor"><span><i class="iconfont icon-shanchu"></i></span></div>
+                            <div class="operimg2"><img src="../image/equipment.png"></div>
+                            <div class="opertitle2">
+                                <div class="firstspan"><span>设备：2号</span></div>
+                                <div class="secondspan"><span>节点：备用3</span></div>
+                                <div class="spanirdspan"><span>编号：0821B3EFBC57</span></div>
+                            </div>
+                            <div class="showdevicestate">
+                                <img src="../image/opendevice.png" class="cursor ">
+                                <img src="../image/closedevice.png" class="cursor hidden ">
+                            </div>
+                            <div class="editequiostate2"><span class="controlequipon">开</span><span>关</span></div>
+                        </div>
+                        <div class="operbottom">
+                            <div class="cursor icon-control2"><span><i class="iconfont icon-control"></i></span></div>
+                            <div class="cursor"><span><i class="iconfont icon-wenjian"></i></span></div>
+                            <div class="cursor"><span><i class="iconfont icon-dengdaiwenjian"></i></span></div>
+                            <div class="cursor"><span><i class="iconfont icon-bianjiwenjian"></i></span></div>
+                            <div class="cursor"><span><i class="iconfont icon-shituxianshiquanbujiedian"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="operdevicebox operdevicebox-item2 hidden">
+                        <div class="opercenter">
+                            <div class="online"><span>在线</span></div>
+                            <div class="leftright cursor leftright-item2"><span><i
+                                        class="iconfont icon-sanjiaoright"></i></span><span><i
+                                        class="iconfont icon-sanjiaoleft"></i></span></div>
+                            <div class="deletedevice cursor"><span><i class="iconfont icon-shanchu"></i></span></div>
+                            <div class="operimg2"><img src="../image/equipment.png"></div>
+                            <div class="opertitle2">
+                                <div class="firstspan"><span>设备：2号</span></div>
+                                <div class="secondspan"><span>节点：备用4</span></div>
+                                <div class="spanirdspan"><span>编号：0821B3EFBC57</span></div>
+                            </div>
+                            <div class="showdevicestate">
+                                <img src="../image/opendevice.png" class="cursor hidden">
+                                <img src="../image/closedevice.png" class="cursor ">
+                            </div>
+                            <div class="editequiostate2"><span>开</span><span class="controlequipooff">关</span></div>
+                        </div>
+                        <div class="operbottom">
+                            <div class="cursor icon-control2"><span><i class="iconfont icon-control"></i></span></div>
+                            <div class="cursor"><span><i class="iconfont icon-wenjian"></i></span></div>
+                            <div class="cursor"><span><i class="iconfont icon-dengdaiwenjian"></i></span></div>
+                            <div class="cursor"><span><i class="iconfont icon-bianjiwenjian"></i></span></div>
+                            <div class="cursor"><span><i class="iconfont icon-shituxianshiquanbujiedian"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="operdevicebox operdevicebox-item2 hidden">
+                        <div class="opercenter">
+                            <div class="online"><span>在线</span></div>
+                            <div class="leftright cursor leftright-item2"><span><i
+                                        class="iconfont icon-sanjiaoright"></i></span><span><i
+                                        class="iconfont icon-sanjiaoleft"></i></span></div>
+                            <div class="deletedevice cursor"><span><i class="iconfont icon-shanchu"></i></span></div>
+                            <div class="operimg2"><img src="../image/equipment.png"></div>
+                            <div class="opertitle2">
+                                <div class="firstspan"><span>设备：2号</span></div>
+                                <div class="secondspan"><span>节点：复位1号</span></div>
+                                <div class="spanirdspan"><span>编号：0821B3EFBC57</span></div>
+                            </div>
+                            <div class="showdevicestate">
+                                <img src="../image/opendevice.png" class="cursor hidden">
+                                <img src="../image/closedevice.png" class="cursor ">
+                            </div>
+                            <div class="editequiostate2"><span>开</span><span class="controlequipooff">关</span></div>
+                        </div>
+                        <div class="operbottom">
+                            <div class="cursor icon-control2"><span><i class="iconfont icon-control"></i></span></div>
+                            <div class="cursor"><span><i class="iconfont icon-wenjian"></i></span></div>
+                            <div class="cursor"><span><i class="iconfont icon-dengdaiwenjian"></i></span></div>
+                            <div class="cursor"><span><i class="iconfont icon-bianjiwenjian"></i></span></div>
+                            <div class="cursor"><span><i class="iconfont icon-shituxianshiquanbujiedian"></i></span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="changedevicepage">
+                    <div class="changedevicepagebox">
+                        <div class="front fbnoallow"><span>上一页</span></div>
+                        <div class="pagenumber cursor pagenumberactive"><span>1</span></div>
+                        <div class="pagenumber cursor hidden"><span>2</span></div>
+                        <div class="behind fbnoallow"><span>下一页</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="coverbox hidden"></div>
+    <div class="coverbox2 hidden"></div>
+    <div class="coverbox3 hidden"></div>
+
+    <div class="setdevice hidden">
+        <div class="setdeviceboxtop">
+            <div><span>节点设置</span></div>
+            <div class="setdevice-tips">
+                <div class="setdevice-tips1"><span>图例详情</span></div>
+                <div class="setdevice-tips2">
+                    <span>联动：节点A开启/关闭时节点B同时开启/关闭.<i>互斥：节点A关闭时节点B开启.</i></span>
+                </div>
+            </div>
+            <div class="setdevice-close "><span><i class="iconfont icon-guanbi cursor"></i></span></div>
+        </div>
+        <div class="setdeviceboxmiddle">
+            <div class="equipmentimg">
+                <img src="../image/equipment.png">
+            </div>
+            <div class="equipmentext">
+                <div><span>1号</span></div>
+                <div><span>编号：084EEB861760</span></div>
+                <div><span>2020-10-16 13:50:30</span></div>
+            </div>
+            <div class="equipmentbtns">
+                <div class="yellowr cursor" id="togetable"><span>联动关系表</span></div>
+                <div class="yellowr cursor" id="togerelation"><span>重置联动关系</span></div>
+                <div class="redr cursor" id="hatetable"><span>互斥关系表</span></div>
+                <div class="redr cursor" id="haterelation"><span>重置互斥关系</span></div>
+            </div>
+            <div class="equipmentime"><span>2022-10-31 16:01:17</span></div>
+            <div class="senior cursor">
+                <span>开启高级选项</span>
+            </div>
+            <div class="equipreloadtime cursor">
+                <span>刷新时间</span>
+            </div>
+            <div class="equiprerelation">
+                <div class="togethercircle"><span>○</span></div>
+                <div class="relationtext"><span>联动关系</span></div>
+                <div class="hatecircle"><span>○</span></div>
+                <div class="relationtext"><span>互斥关系</span></div>
+            </div>
+        </div>
+        <div class="setdeviceboxbottom setdeviceboxbottom1 hidden">
+            <div class="bottomboxitem">
+                <div id="1">
+                    <div class="editequipname editequipname1"><span class="cursor"><i
+                                class="iconfont icon-bianjiwenjian"></i></span><span>风机</span></div>
+                    <div class="editequiostate editequiostate1"><img src="../image/opendevice.png"
+                            class="hidden cursor"><img src="../image/closedevice.png" class="cursor"></div>
+                    <div class="controlequip controlequip1"><span>开</span><span class="controlequipooff">关</span></div>
+                </div>
+                <div class="leftequipgap" id="2">
+                    <div class="editequipname editequipname1"><span class="cursor"><i
+                                class="iconfont icon-bianjiwenjian"></i></span><span>喷洒</span></div>
+                    <div class="editequiostate editequiostate1"><img src="../image/opendevice.png"
+                            class="hidden cursor"> <img src="../image/closedevice.png" class="cursor"></div>
+                    <div class="controlequip controlequip1"><span>开</span><span class="controlequipooff">关</span></div>
+                </div>
+                <div class="leftequipgap" id="3">
+                    <div class="editequipname editequipname1"><span class="cursor"><i
+                                class="iconfont icon-bianjiwenjian"></i></span><span>启动遮阳帘</span></div>
+                    <div class="editequiostate editequiostate1"><img src="../image/opendevice.png"
+                            class="hidden cursor"> <img src="../image/closedevice.png" class="cursor"></div>
+                    <div class="controlequip controlequip1"><span>开</span><span class="controlequipooff">关</span></div>
+                </div>
+                <div class="topequipgap" id="4">
+                    <div class="editequipname editequipname1"><span class="cursor"><i
+                                class="iconfont icon-bianjiwenjian"></i></span><span>收放帘</span></div>
+                    <div class="editequiostate editequiostate1"><img src="../image/opendevice.png" class="cursor"> <img
+                            src="../image/closedevice.png" class="hidden cursor"></div>
+                    <div class="controlequip controlequip1"><span class="controlequipon">开</span><span>关</span></div>
+                </div>
+                <div class="leftequipgap topequipgap" id="5">
+                    <div class="editequipname editequipname1"><span class="cursor"><i
+                                class="iconfont icon-bianjiwenjian"></i></span><span>备用1</span></div>
+                    <div class="editequiostate editequiostate1"><img src="../image/opendevice.png"
+                            class="hidden cursor"> <img src="../image/closedevice.png" class="cursor"></div>
+                    <div class="controlequip controlequip1"><span>开</span><span class="controlequipooff">关</span></div>
+                </div>
+                <div class="leftequipgap topequipgap" id="6">
+                    <div class="editequipname editequipname1"><span class="cursor"><i
+                                class="iconfont icon-bianjiwenjian"></i></span><span>备用2</span></div>
+                    <div class="editequiostate editequiostate1"><img src="../image/opendevice.png" class="cursor"> <img
+                            src="../image/closedevice.png" class="hidden cursor"></div>
+                    <div class="controlequip controlequip1"><span class="controlequipon">开</span><span>关</span></div>
+                </div>
+                <div class="topequipgap" id="7">
+                    <div class="editequipname editequipname1"><span class="cursor"><i
+                                class="iconfont icon-bianjiwenjian"></i></span><span>备用3</span></div>
+                    <div class="editequiostate editequiostate1"><img src="../image/opendevice.png" class="cursor"> <img
+                            src="../image/closedevice.png" class="hidden cursor"></div>
+                    <div class="controlequip controlequip1"><span class="controlequipon">开</span><span>关</span></div>
+                </div>
+                <div class="leftequipgap topequipgap" id="8">
+                    <div class="editequipname editequipname1"><span class="cursor"><i
+                                class="iconfont icon-bianjiwenjian"></i></span><span>复位2号</span></div>
+                    <div class="editequiostate editequiostate1"><img src="../image/opendevice.png"
+                            class="hidden cursor"> <img src="../image/closedevice.png" class="cursor"></div>
+                    <div class="controlequip controlequip1"><span>开</span><span class="controlequipooff">关</span></div>
+                </div>
+            </div>
+        </div>
+        <div class="setdeviceboxbottom setdeviceboxbottom2 hidden">
+            <div class="bottomboxitem">
+                <div>
+                    <div class="editequipname"><span class="cursor"><i
+                                class="iconfont icon-bianjiwenjian"></i></span><span>启动施肥</span></div>
+                    <div class="editequiostate"><img src="../image/opendevice.png" class="hidden cursor"><img
+                            src="../image/closedevice.png" class="cursor"></div>
+                    <div class="controlequip"><span>开</span><span class="controlequipooff">关</span></div>
+                </div>
+                <div class="leftequipgap">
+                    <div class="editequipname"><span class="cursor"><i
+                                class="iconfont icon-bianjiwenjian"></i></span><span>果肥进水</span></div>
+                    <div class="editequiostate"><img src="../image/opendevice.png" class="hidden cursor"> <img
+                            src="../image/closedevice.png" class="cursor"></div>
+                    <div class="controlequip"><span>开</span><span class="controlequipooff">关</span></div>
+                </div>
+                <div class="leftequipgap">
+                    <div class="editequipname"><span class="cursor"><i
+                                class="iconfont icon-bianjiwenjian"></i></span><span>叶肥进水</span></div>
+                    <div class="editequiostate"><img src="../image/opendevice.png" class=" cursor"> <img
+                            src="../image/closedevice.png" class="cursor hidden"></div>
+                    <div class="controlequip"><span class="controlequipon">开</span><span>关</span></div>
+                </div>
+                <div class="topequipgap">
+                    <div class="editequipname"><span class="cursor"><i
+                                class="iconfont icon-bianjiwenjian"></i></span><span>备用1</span></div>
+                    <div class="editequiostate"><img src="../image/opendevice.png" class="cursor hidden"> <img
+                            src="../image/closedevice.png" class=" cursor"></div>
+                    <div class="controlequip"><span>开</span><span class="controlequipooff">关</span></div>
+                </div>
+                <div class="leftequipgap topequipgap">
+                    <div class="editequipname"><span class="cursor"><i
+                                class="iconfont icon-bianjiwenjian"></i></span><span>备用2</span></div>
+                    <div class="editequiostate"><img src="../image/opendevice.png" class="hidden cursor"> <img
+                            src="../image/closedevice.png" class="cursor"></div>
+                    <div class="controlequip"><span>开</span><span class="controlequipooff">关</span></div>
+                </div>
+                <div class="leftequipgap topequipgap">
+                    <div class="editequipname"><span class="cursor"><i
+                                class="iconfont icon-bianjiwenjian"></i></span><span>备用3</span></div>
+                    <div class="editequiostate"><img src="../image/opendevice.png" class="cursor"> <img
+                            src="../image/closedevice.png" class="hidden cursor"></div>
+                    <div class="controlequip"><span class="controlequipon">开</span><span>关</span></div>
+                </div>
+                <div class="topequipgap">
+                    <div class="editequipname"><span class="cursor"><i
+                                class="iconfont icon-bianjiwenjian"></i></span><span>备用4</span></div>
+                    <div class="editequiostate"><img src="../image/opendevice.png" class="cursor hidden"> <img
+                            src="../image/closedevice.png" class=" cursor"></div>
+                    <div class="controlequip"><span>开</span><span class="controlequipooff">关</span></div>
+                </div>
+                <div class="leftequipgap topequipgap">
+                    <div class="editequipname"><span class="cursor"><i
+                                class="iconfont icon-bianjiwenjian"></i></span><span>复位1号</span></div>
+                    <div class="editequiostate"><img src="../image/opendevice.png" class="hidden cursor"> <img
+                            src="../image/closedevice.png" class="cursor"></div>
+                    <div class="controlequip"><span>开</span><span class="controlequipooff">关</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="tooltip hidden">
+        <span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="retooltip">执行成功</span><span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+    </div>
+
+    <div class="rename hidden">
+        <div class="rename-title">
+            <span>请输入节点名称</span>
+            <span class="rename-close "><i class="iconfont icon-guanbi cursor"></i></span>
+        </div>
+        <div class="rename-input">
+            <input type="text" id="rename-input" autocomplete="off">
+        </div>
+        <div class="rename-btn">
+            <button class="rename-btn1 cursor">确认</button>
+            <button class="rename-btn2 cursor">取消</button>
+        </div>
+    </div>
+
+    <div class="setrelation hidden">
+        <div class="setrelation-title">
+            <span>信息</span>
+            <span class="setrelation-close cursor"><i class="iconfont icon-guanbi"></i></span>
+        </div>
+        <div class="setrelation-span">
+            <span>你确定重置此设备所有</span><span class="relation-rename">联动关系</span><span>吗？</span>
+        </div>
+        <div class="setrelation-btn">
+            <button class="setrelation-btn1 cursor">确认</button>
+            <button class="setrelation-btn2 cursor">取消</button>
+        </div>
+    </div>
+
+    <div class="updaterelation hidden" id="draggable">
+        <div class="updaterelation-title">
+            <span><i class="updaterelation-rename1" id="getrelationame">联动关系表</i>：<i class="updaterelation-rename2">2</i>号</span><span
+                class=""><i class="iconfont icon-guanbi cursor"></i></span>
+        </div>
+        <div class="updaterelation-secondbox">
+            <div><span>可配置<i class="redcolorfont updaterelation-rename3">6</i>组<i
+                        class="updaterelation-rename4">联动关系</i></span></div>
+            <ul class="togeul">
+                <!-- <li>
+                    <span class="firli">2022-02-08 16:33:01</span>
+                    <span class="secli"><i>备用2</i>- <i>备用3</i></span>
+                    <span class="spanirli cursor"><i class="iconfont icon-edit"></i></span>
+                </li> -->
+            </ul>
+            <ul class="hateul hidden">
+            </ul>
+        </div>
+        <div class="updaterelation-thirdbox">
+            <span class="cursor"><i class="iconfont icon-add"></i></span>
+        </div>
+        <div class="updaterelation-fourthbox clearfix">
+            <button class="cursor">取消</button>
+        </div>
+    </div>
+
+    <div class="addrelationbox hidden">
+        <div class="addrelationbox-title">
+            <span class="addrelationbox-rename">配置互斥</span>
+            <span class="addrelationbox-close"><i class="iconfont icon-guanbi cursor"></i></span>
+        </div>
+        <div class="addrelationbox-select">
+            <div>
+                <select name="" id="select1" class="cursor">
+                </select>
+            </div>
+            <div>
+                <select name="" id="select2" class="cursor">
+                </select>
+            </div>
+        </div>
+        <div class="addrelationbox-btn">
+            <button class="addrelationbox-btn1 cursor">确认</button>
+            <button class="addrelationbox-btn2 cursor">取消</button>
+
+        </div>
+    </div>
+
+    <div class="addequipbox hidden">
+        <div class="addequipbox-title">
+            <span>添加设备</span>
+            <span class="addequipbox-close"><i class="iconfont icon-guanbi cursor"></i></span>
+        </div>
+        <div class="addequipbox-center">
+            <div class="addquipbox-center1"><img src="./image/equipment.png"></div>
+            <div class="addequipbox-updateimg cursor">
+                <span>修改头像</span>
+            </div>
+            <div class="addequipbox-input">
+                <span>继电器名称</span>
+                <input type="text" placeholder="继电器名称" id="addequip-input1" autocomplete="off">
+            </div>
+            <div class="addequipbox-input2">
+                <span>设备编号</span>
+                <input type="text" placeholder="请填写设备编号" id="addequip-input2" autocomplete="off">
+            </div>
+            <!-- <div class="addequipbox-input3">
+                <span>选择分组</span>
+                <select class="cursor"  id="select3" >
+                    <option value="1">1#</option>
+                    <option value="2">2#</option>
+                </select>
+            </div> -->
+            <div class="addequipbox-input4">
+                <span>选择设备类型</span>
+                <select class="cursor" id="select4">
+                    <option value="1" selected>4</option>
+                    <option value="2">8</option>
+                    <option value="3">16</option>
+                </select>
+            </div>
+            <div class="addequipbox-btn cursor">
+                <span>保存</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="selectimagebox hidden">
+        <div class="selectimagebox-title">
+            <span>选择头像</span>
+            <span class="selectimagebox-close"><i class="iconfont icon-guanbi cursor"></i></span>
+        </div>
+        <div class="selectimagebox-center">
+            <div>
+                <img src="./image/equipment.png" class="cursor">
+            </div>
+            <div>
+                <img src="./image/equipment2.png" class="cursor">
+            </div>
+            <div>
+                <img src="./image/equipment3.png" class="cursor">
+            </div>
+            <div>
+                <img src="./image/equipment4.png" class="cursor">
+            </div>
+            <div>
+                <img src="./image/equipment5.png" class="cursor">
+            </div>
+            <div>
+                <img src="./image/equipment6.png" class="cursor">
+            </div>
+            <div>
+                <img src="./image/equipment7.png" class="cursor">
+            </div>
+            <div>
+                <img src="./image/equipment8.png" class="cursor">
+            </div>
+            <div>
+                <img src="./image/equipment9.png" class="cursor">
+            </div>
+            <div>
+                <img src="./image/equipment10.png" class="cursor">
+            </div>
+        </div>
+    </div>
+
+    <div class="assignmentbox hidden">
+        <div class="assignmentboxtop">
+            <div><span>任务列表</span></div>
+            <div class="assignmentbox-tips">
+                <div class="assignmentbox-tips1"><span>图例详情</span></div>
+                <div class="assignmentbox-tips2">
+                    <span>编辑:修改选中的任务名称/类型/执行时间/执行指令/执行节点.<i>删除:删除选中的任务.</i></span>
+                </div>
+            </div>
+            <div class="assignmentbox-close "><span><i class="iconfont icon-guanbi cursor"></i></span></div>
+        </div>
+        <div class="assignmentcenterbox">
+            <div class="assignmentcentertop">
+                <div class="assignmentcentertop-btn cursor">
+                    <span>添加任务</span>
+                </div>
+                <div class="assignmentcentertop-icon">
+                    <span><i class="iconfont icon-search cursor" id="searchassgin"></i></span>
+                </div>
+                <div class="assignmentcentertop-input">
+                    <input type="text" id="searchassginval" placeholder="请输入任务id" autocomplete="off">
+                </div>
+                <div class="assignmentcentertop-absu">
+                    <div class="assignmentcentertop-absucircle absucircle1"></div>
+                    <span>每日任务</span>
+                    <div class="assignmentcentertop-absucircle absucircle2"></div>
+                    <span>一次性任务</span>
+                    <div class="assignmentcentertop-absucircle absucircle3"></div>
+                    <span>每周任务</span>
+                    <div class="assignmentcentertop-absucircle absucircle4"></div>
+                    <span>每月任务</span>
+                </div>
+            </div>
+            <div class="assignmentcentermiddle">
+                <div class="assignmentcentermiddle-title">
+                    <span class="assignmentcentermiddle-adjust1">任务id</span>
+                    <span class="assignmentcentermiddle-adjust2">名称</span>
+                    <span class="assignmentcentermiddle-adjust3">节点</span>
+                    <span class="assignmentcentermiddle-adjust4">操作类型</span>
+                    <span class="assignmentcentermiddle-adjust5">执行时间</span>
+                    <span class="assignmentcentermiddle-adjust6">开始时间</span>
+                    <span class="assignmentcentermiddle-adjust7">结束时间</span>
+                    <span class="assignmentcentermiddle-adjust8">延时（秒）</span>
+                    <span class="assignmentcentermiddle-adjust9">预约类型</span>
+                    <span class="assignmentcentermiddle-adjust10">星期几</span>
+                    <span class="assignmentcentermiddle-adjust11">操作</span>
+                </div>
+            </div>
+            <!-- <div class="assignmentcenterbottom">
+                <div class="assignmentitle1">1</div>
+                <div class="assignmentitle2">开启3</div>
+                <div class="assignmentitle2">收放帘</div>
+                <div class="assignmentitle3">自锁关</div>
+                <div class="assignmentitle4">2022-11-11 11:38:55</div>
+                <div class="assignmentitle5">100000</div>
+                <div class="assignmentitle6">单次</div>
+                <div class="assignmentitle7">
+                    <span class="highspan">1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <span>5</span>
+                    <span>6</span>
+                    <span>7</span>
+                </div>
+                <div class="assignmentitle8">
+                    <span><i class="iconfont icon-edit cursor"></i></span>
+                    <span><i class="iconfont icon-shanchu cursor"></i></span>
+                </div>
+            </div> -->
+        </div>
+    </div>
+
+    <div class="assigndetailbox hidden">
+        <div class="assigndetailbox-title">
+            <span id="editassigntitle">添加任务</span>
+            <span class="assigndetailbox-close"><i class="iconfont icon-guanbi cursor"></i></span>
+        </div>
+        <div>
+            <span>继电器名称</span>
+            <input class="assigndetailboxinput" type="text" placeholder="1号" autocomplete="off" disabled>
+        </div>
+        <div class="assigndetailbox-codeid">
+            <span>节点id</span>
+            <select name="" id="codeid" class="assigndetailboxinput">
+                <!-- <option value=""></option> -->
+            </select>
+        </div>
+        <div class="assigndetailbox-task">
+            <span>任务名称</span>
+            <input type="text" class="assigndetailboxinput" id="getassigname" placeholder="请输入任务名称" autocomplete="off">
+        </div>
+        <div class="assigndetailbox-mode">
+            <span>模式</span>
+            <select name="" id="getopertype" class="assigndetailboxinput">
+                <option value="0" selected>自锁关</option>
+                <option value="1">自锁开</option>
+                <option value="2">点动关</option>
+                <option value="3">点动开</option>
+            </select>
+        </div>
+        <div class="assigndetailbox-order">
+            <span>预约</span>
+            <select name="" id="getimetype" class="assigndetailboxinput">
+                <option value="1" selected>单次</option>
+                <option value="2">有效期</option>
+                <option value="3">长期有效</option>
+            </select>
+        </div>
+        <div class="assigndetailbox-delayed">
+            <span>延时（秒）</span>
+            <input type="text" class="assigndetailboxinput" id="delaytime" value="100000" autocomplete="off" disabled>
+        </div>
+        <div class="assigndetailbox-startendtime hidden">
+            <div class="layui-inline">
+                <span>开始时间</span>
+                <div class="layui-input-inline">
+                    <input type="text" class="layui-input assigndetailboxinput" id="startime"
+                        placeholder="yyyy-MM-dd HH:mm:ss">
+                </div>
+            </div>
+            <div class="layui-inline">
+                <span>结束时间</span>
+                <div class="layui-input-inline">
+                    <input type="text" class="layui-input assigndetailboxinput" id="endtime"
+                        placeholder="yyyy-MM-dd HH:mm:ss">
+                </div>
+            </div>
+        </div>
+        <div class="assigndetailbox-runbox">
+            <div class="layui-inline">
+                <span>执行时间</span>
+                <div class="layui-input-inline">
+                    <input type="text" class="layui-input hidden assigndetailboxinput" id="runtime1"
+                        placeholder="HH:mm:ss">
+                    <input type="text" class="layui-input  assigndetailboxinput" id="runtime2" placeholder="HH:mm:ss">
+                </div>
+            </div>
+        </div>
+        <div class="assigndetailbox-checkbox hidden">
+            <span>多选</span>
+            <input type="checkbox" name="week" value="1">一
+            <input type="checkbox" name="week" value="2">二
+            <input type="checkbox" name="week" value="3">三
+            <input type="checkbox" name="week" value="4">四
+            <input type="checkbox" name="week" value="5">五
+            <input type="checkbox" name="week" value="6">六
+            <input type="checkbox" name="week" value="7">日
+        </div>
+        <div class="assigndetailbox-sure cursor">
+            <span>确认</span>
+        </div>
+    </div>
+
+
+
+
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <!-- <script src="https://apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script> -->
+    <script src="./layui/layui.js"></script>
+    <script src="js/time.js"></script>
+    <script src="js/page14.js"></script>
+
+</body>
+
+</html>

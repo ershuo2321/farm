@@ -1,0 +1,81 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+html,body{
+    height: 100%;
+    user-select: none;    
+    font-size: 14px;  
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+a{
+    /* 去掉下划线 */
+    text-decoration: none; 
+}
+
+ol, ul ,li{
+	list-style: none;
+}
+
+i {
+    font-style: normal;
+}
+
+input{
+    outline: none;
+}
+
+.hidden {
+    display: none;
+}
+
+
+img{
+    vertical-align: top;
+}
+
+.cursor{
+    cursor:pointer
+}
+
+.notallowed{
+    cursor: not-allowed;
+}
+
+/* 解决高度塌陷以及外边距重叠问题 */
+.clearfix::before,.clearfix::after{
+    content:'';
+    display:table;
+    clear:both;
+}
+
+select,textarea{
+    outline: none;
+}
+
+/* 居中的三种方式 */
+.aligncenter{
+    position: absolute;
+    left:0;
+    top:0;
+    right:0;
+    bottom:0;
+    margin:auto
+}
+.aligncenter1{
+    left: 50%;
+    top:50%;
+    transform: translateX(-50%) translateY((-50%));
+}
+
+.aligncenter2{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
